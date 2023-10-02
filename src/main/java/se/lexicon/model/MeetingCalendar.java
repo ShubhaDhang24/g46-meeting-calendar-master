@@ -19,31 +19,46 @@ public class MeetingCalendar {
         return title;
     }
 
+
     public List<Meeting> getMeetings() {
+        if(meetings==null) meetings=new ArrayList<>();
         return meetings;
     }
 
     public String getUserName() {
         return userName;
     }
-    public Meeting addMeeting(Meeting meeting)
-    {
-        List<Meeting> newMeeting=new ArrayList<>();
-        newMeeting.add(meeting);
-        return meeting;
+
+    public MeetingCalendar(int id,String title){
+        this(title);
+        this.id = id;
+
     }
-    public Meeting removeMeeting(Meeting meeting)
-    {
-        List<Meeting>meetings1=new ArrayList<>();
-        for (Meeting m:meetings1) {
-            if (meeting.getTitle().equals(title)) {
-                meetings1.remove(m);
-                System.out.println("Meeting '" + title + "' removed successfully.");
+    public MeetingCalendar(String title) {
+        this.title = title;
+    }
+
+    public MeetingCalendar(int id, String title, String userName) {
+        this(id,title);
+        this.userName = userName;
+    }
+
+    public void addMeeting(Meeting meeting)
+    {   if(meetings==null) meetings= new ArrayList<>();
+        meetings.add(meeting);
+    }
+    public void removeMeeting(Meeting meeting)
+    {   if(meetings==null) throw new RuntimeException("Meeting is null");
+        {
+                        meetings.remove(meeting);
+                        System.out.println("Meeting '" + title + "' removed successfully.");
 
             }
         }
-        System.out.println("Meeting '" + title + "' not found.");
-        return meeting;
+        public void displayInfo()
+        {
+            System.out.println("id "+id+" title"+title);
+        }
     }
 
-    }
+

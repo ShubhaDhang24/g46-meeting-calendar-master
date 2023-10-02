@@ -34,6 +34,33 @@ public class Meeting {
     public MeetingCalendar getCalendar() {
         return calendar;
     }
+
+    public Meeting(int id, String title, LocalDateTime startTime, LocalDateTime endTime, String description, MeetingCalendar calendar) {
+        this.id = id;
+        this.title = title;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.description = description;
+        this.calendar = calendar;
+    }
+
+    public Meeting(int id, String title, LocalDateTime startTime, LocalDateTime endTime, String description) {
+        this.id = id;
+        this.title = title;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.description = description;
+    }
+
+    public Meeting(String title, LocalDateTime startTime, LocalDateTime endTime, String description, MeetingCalendar calendar) {
+        this.title = title;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.description = description;
+        this.calendar = calendar;
+    }
+
+
     public  void displayMeetingInfo()
     {
         System.out.println("Meeting details ");
