@@ -21,7 +21,7 @@ public class MeetingCalendar {
 
 
     public List<Meeting> getMeetings() {
-        if(meetings==null) meetings=new ArrayList<>();
+        if(this.meetings==null) meetings=new ArrayList<>();
         return meetings;
     }
 
@@ -29,17 +29,21 @@ public class MeetingCalendar {
         return userName;
     }
 
-    public MeetingCalendar(int id,String title){
-        this(title);
+    //constructor1 to fetch data from database
+    public MeetingCalendar(int id,String title, String userName){
+        this(title,userName);
         this.id = id;
 
     }
+    //constructor 2 to search for specific
     public MeetingCalendar(String title) {
         this.title = title;
     }
 
-    public MeetingCalendar(int id, String title, String userName) {
-        this(id,title);
+
+    //constructor3 create a meeting calendar chaining constructor
+    public MeetingCalendar( String title, String userName) {
+        this(title);
         this.userName = userName;
     }
 
@@ -50,14 +54,21 @@ public class MeetingCalendar {
     public void removeMeeting(Meeting meeting)
     {   if(meetings==null) throw new RuntimeException("Meeting is null");
         {
+            if(meeting==null) throw new RuntimeException("Meeting data is null");
                         meetings.remove(meeting);
                         System.out.println("Meeting '" + title + "' removed successfully.");
 
             }
         }
-        public void displayInfo()
+        public String displayCalendarInfo()
         {
-            System.out.println("id "+id+" title"+title);
+            StringBuilder stringBuilder=new StringBuilder();
+            stringBuilder.append("info").append(displayCalendarInfo()).append("\n");
+            stringBuilder.append("id").append(id).append("\n");
+            stringBuilder.append("title").append(title).append("\n");
+            stringBuilder.append("User ").append(userName).append("\n");
+
+            return stringBuilder.toString();
         }
     }
 
