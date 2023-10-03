@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class MyDbConnection {
     private static final  String db_Name="meeting_calender_db";
-    private static final String url="jdbc:mysql://localhost:3306/db_Name";
+    private static final String url="jdbc:mysql://localhost:3306/"+db_Name;
     private static final String userName="root";
     private static final String password="2424";
 
