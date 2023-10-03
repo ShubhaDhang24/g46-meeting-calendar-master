@@ -7,6 +7,11 @@ public class User {
 
     private final String username;
     private String password;
+    private boolean expired;
+
+    public boolean isExpired() {
+        return expired;
+    }
 
     public User(String username) {
         this.username = username;
@@ -16,6 +21,11 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(String username, String password, boolean expired) {
+        this(username,password);
+        this.expired = expired;
     }
 
     public String getUsername() {
