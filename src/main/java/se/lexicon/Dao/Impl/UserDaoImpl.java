@@ -23,7 +23,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User createUser(String userName) {
         String query = "Insert into USER(USERNAME,PASSWORD) values(? ?)";
-
         try (
              PreparedStatement preparedStatement = connection.prepareStatement(query);
         ) {

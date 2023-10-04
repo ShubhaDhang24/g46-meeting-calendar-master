@@ -6,7 +6,9 @@ import java.util.Collection;
 import java.util.Optional;
 
 public interface MeetingCalendarDao {
-    MeetingCalendar create(String title, String userName);
+
+    MeetingCalendar createMeetingCalender(String userName, String title);
+
     Optional<MeetingCalendar>findById(int id);
     //display meeting to user
     Collection<MeetingCalendar> findByUserName(String userName);
